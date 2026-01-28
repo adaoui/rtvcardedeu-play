@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Shell } from "../components/layout/Shell";
 import { fetchLatestVideos, type LatestVideo } from "../services/youtube";
 import { Button } from "../components/ui/button";
+import { CategoriesPills } from "../components/CategoriesPills";
 
 export default function Home() {
   const [videos, setVideos] = useState<LatestVideo[]>([]);
@@ -30,6 +31,14 @@ export default function Home() {
   function nextHero() {
     setHeroIndex((i) => (i + 1) % heroVideos.length);
   }
+  const categories = [
+    { id: "informatius", label: "Informatius" },
+    { id: "esports", label: "Esports" },
+    { id: "podcasts", label: "Pòdcasts" },
+    { id: "especials", label: "Especials" },
+    { id: "cultura", label: "Cultura" },
+    { id: "altres", label: "Altres" },
+  ];
 
   return (
     <Shell>
@@ -157,7 +166,6 @@ export default function Home() {
           <div className="mb-5 flex items-end justify-between">
             <h2 className="text-xl font-semibold">Més novetats</h2>
           </div>
-
           <div className="grid gap-2 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5">
             {noveltyVideos.map((v) => (
               <Link
@@ -186,6 +194,11 @@ export default function Home() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+      <section className="relative z-20 pb-10">
+        <div className="mx-auto w-full max-w-[1720px] px-6 sm:px-10">
+          <CategoriesPills categories={categories} />
         </div>
       </section>
     </Shell>
