@@ -7,8 +7,8 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/playlist/:playlistId" element={<Playlist />} />
-      <Route path="/watch/:videoId" element={<Watch />} />
+      <Route path="/playlist/:id" element={<Playlist />} />
+      <Route path="/watch/:id" element={<Watch />} />
     </Routes>
   );
 }
