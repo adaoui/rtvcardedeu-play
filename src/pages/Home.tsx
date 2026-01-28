@@ -43,18 +43,22 @@ export default function Home() {
       <section className="relative overflow-hidden rounded-3xl border border-zinc-800 bg-black">
         {/* Video background (muted autoplay) */}
         <div className="absolute inset-0">
+          {/* Video background (encima) */}
           {featured?.videoId ? (
             <iframe
-              className="h-full w-full scale-[1.15] opacity-35"
-              src={`https://www.youtube.com/embed/${featured.videoId}?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1&playsinline=1&loop=1&playlist=${featured.videoId}`}
+              className="absolute inset-0 h-full w-full scale-[1.40] opacity-55"
+              src={`https://www.youtube.com/embed/${featured.videoId}?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1&playsinline=1&loop=1&playlist=${featured.videoId}&iv_load_policy=3&cc_load_policy=0`}
               title="Hero background"
               allow="autoplay; encrypted-media; picture-in-picture"
             />
           ) : null}
 
-          {/* overlays */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+          {/* “Cortina” para tapar UI de YouTube (arriba) */}
+          <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/80 to-transparent" />
+
+          {/* overlays (menos oscuro que antes) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
         </div>
 
         <div className="relative p-6 sm:p-10">
