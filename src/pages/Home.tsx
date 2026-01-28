@@ -52,7 +52,7 @@ export default function Home() {
               allow="autoplay; encrypted-media; picture-in-picture"
             />
           ) : null}
-
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black via-black/60 to-transparent" />
           {/* “Cortina” para tapar UI de YouTube (arriba) */}
           <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/80 to-transparent" />
 
@@ -64,7 +64,7 @@ export default function Home() {
         <div className="relative mx-auto max-w-6xl px-6 sm:px-10 pt-16 pb-10">
           <p className="text-sm text-zinc-300/80">RTVCardedeu Play</p>
           <h1 className="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight">
-            Inici
+            Últims vídeos
           </h1>
 
           <div className="mt-6 grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-8 items-center">
@@ -150,42 +150,41 @@ export default function Home() {
         </div>
       </section>
 
-      {/* NOVEDADES rail = siguientes 5 */}
-      <section className="mt-10">
-        <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen">
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-black to-transparent z-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-black to-transparent z-10" />
+      {/* NOVETATS (flotant sobre el final del HERO) */}
+      <section className="relative z-30 -mt-52 pb-10">
+        {/* full width, centrat tipus Netflix */}
+        <div className="mx-auto w-full max-w-[1720px] px-6 sm:px-1">
+          <div className="mb-5 flex items-end justify-between">
+            <h2 className="text-xl font-semibold">Més novetats</h2>
+          </div>
 
-          <div className="no-scrollbar overflow-x-auto px-6">
-            <div className="mt-4 flex gap-6 pb-10 min-w-max">
-              {noveltyVideos.map((v) => (
-                <Link
-                  key={v.videoId}
-                  to={`/watch/${v.videoId}`}
-                  className="group w-[340px]"
-                >
-                  <div className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 hover:border-zinc-600 transition">
-                    <div className="relative aspect-video bg-zinc-900">
-                      <img
-                        src={v.thumbnail}
-                        alt={v.title}
-                        className="h-full w-full object-cover group-hover:scale-[1.04] transition-transform duration-300"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
-                    </div>
-                    <div className="p-4">
-                      <div className="font-semibold line-clamp-2">
-                        {v.title}
-                      </div>
-                      <div className="mt-1 text-xs text-zinc-400">
-                        {new Date(v.publishedAt).toLocaleDateString("ca-ES")}
-                      </div>
+          <div className="grid gap-2 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5">
+            {noveltyVideos.map((v) => (
+              <Link
+                key={v.videoId}
+                to={`/watch/${v.videoId}`}
+                className="group"
+              >
+                <div className="overflow-hidden rounded-2xl border border-zinc-800/80 bg-zinc-950/80 shadow-[0_18px_60px_rgba(0,0,0,0.55)] backdrop-blur hover:border-zinc-600 transition">
+                  <div className="relative aspect-video bg-zinc-900">
+                    <img
+                      src={v.thumbnail}
+                      alt={v.title}
+                      className="h-full w-full object-cover group-hover:scale-[1.03] transition-transform duration-300"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
+                  </div>
+
+                  <div className="p-4">
+                    <div className="font-semibold line-clamp-2">{v.title}</div>
+                    <div className="mt-1 text-xs text-zinc-400">
+                      {new Date(v.publishedAt).toLocaleDateString()}
                     </div>
                   </div>
-                </Link>
-              ))}
-            </div>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
