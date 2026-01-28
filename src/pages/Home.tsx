@@ -40,13 +40,13 @@ export default function Home() {
       ) : null}
 
       {/* HERO (últimos 5) */}
-      <section className="relative overflow-hidden rounded-3xl border border-zinc-800 bg-black">
+      <section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen overflow-hidden bg-black min-h-[520px] h-[80vh]">
         {/* Video background (muted autoplay) */}
         <div className="absolute inset-0">
           {/* Video background (encima) */}
           {featured?.videoId ? (
             <iframe
-              className="absolute inset-0 h-full w-full scale-[1.40] opacity-55"
+              className="absolute inset-0 h-full w-full scale-[1.45] opacity-55"
               src={`https://www.youtube.com/embed/${featured.videoId}?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1&playsinline=1&loop=1&playlist=${featured.videoId}&iv_load_policy=3&cc_load_policy=0`}
               title="Hero background"
               allow="autoplay; encrypted-media; picture-in-picture"
@@ -61,7 +61,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
         </div>
 
-        <div className="relative p-6 sm:p-10">
+        <div className="relative mx-auto max-w-6xl px-6 sm:px-10 pt-16 pb-10">
           <p className="text-sm text-zinc-300/80">RTVCardedeu Play</p>
           <h1 className="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight">
             Inici
@@ -71,7 +71,7 @@ export default function Home() {
             {/* left info */}
             <div className="space-y-4">
               <p className="inline-flex items-center rounded-full border border-zinc-700 bg-black/30 px-3 py-1 text-xs text-zinc-200">
-                Novedades
+                Novetats
               </p>
 
               <div className="text-2xl sm:text-3xl font-bold leading-tight">
@@ -92,7 +92,7 @@ export default function Home() {
                     </Button>
                   </Link>
                 ) : (
-                  <Button disabled>Reproduir</Button>
+                  <Button disabled>Reprodueix</Button>
                 )}
 
                 <div className="ml-2 flex items-center gap-2">
@@ -151,41 +151,41 @@ export default function Home() {
       </section>
 
       {/* NOVEDADES rail = siguientes 5 */}
-      <section className="mt-10 space-y-3">
-        <div className="flex items-end justify-between">
-          <h2 className="text-xl font-semibold">Novedades</h2>
-          <span className="text-xs text-zinc-400">
-            {noveltyVideos.length ? "Últimos vídeos" : ""}
-          </span>
-        </div>
+      <section className="mt-10">
+        <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen">
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-black to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-black to-transparent z-10" />
 
-        <div className="-mx-6 px-6 overflow-x-auto">
-          <div className="flex gap-4 pb-2 min-w-max">
-            {noveltyVideos.map((v) => (
-              <Link
-                key={v.videoId}
-                to={`/watch/${v.videoId}`}
-                className="group w-[280px]"
-              >
-                <div className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 hover:border-zinc-600 transition">
-                  <div className="relative aspect-video bg-zinc-900">
-                    <img
-                      src={v.thumbnail}
-                      alt={v.title}
-                      className="h-full w-full object-cover group-hover:scale-[1.03] transition-transform"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                  </div>
-                  <div className="p-4">
-                    <div className="font-semibold line-clamp-2">{v.title}</div>
-                    <div className="mt-1 text-xs text-zinc-400">
-                      {new Date(v.publishedAt).toLocaleDateString()}
+          <div className="no-scrollbar overflow-x-auto px-6">
+            <div className="mt-4 flex gap-6 pb-10 min-w-max">
+              {noveltyVideos.map((v) => (
+                <Link
+                  key={v.videoId}
+                  to={`/watch/${v.videoId}`}
+                  className="group w-[340px]"
+                >
+                  <div className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 hover:border-zinc-600 transition">
+                    <div className="relative aspect-video bg-zinc-900">
+                      <img
+                        src={v.thumbnail}
+                        alt={v.title}
+                        className="h-full w-full object-cover group-hover:scale-[1.04] transition-transform duration-300"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
+                    </div>
+                    <div className="p-4">
+                      <div className="font-semibold line-clamp-2">
+                        {v.title}
+                      </div>
+                      <div className="mt-1 text-xs text-zinc-400">
+                        {new Date(v.publishedAt).toLocaleDateString("ca-ES")}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>
