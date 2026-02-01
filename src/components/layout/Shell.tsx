@@ -22,7 +22,7 @@ export function Shell({ children }: { children: ReactNode }) {
         </div>
       </header>
 
-      <main className="mx-auto max-w-6xl px-6">{children}</main>
+      <main className="mx-auto max-w-6xl px-6 py-6">{children}</main>
     </div>
   );
 }
