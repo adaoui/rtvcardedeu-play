@@ -2,7 +2,13 @@ import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { Input } from "../ui/input";
 
-export function Shell({ children }: { children: ReactNode }) {
+export function Shell({
+  children,
+  fullWidth = false,
+}: {
+  children: ReactNode;
+  fullWidth?: boolean;
+}) {
   return (
     <div className="min-h-screen bg-black text-white">
       <header className="sticky top-0 z-50 border-b border-zinc-800/80 bg-black/70 backdrop-blur">
@@ -22,7 +28,15 @@ export function Shell({ children }: { children: ReactNode }) {
         </div>
       </header>
 
-      <main className="mx-auto max-w-6xl px-6 pt-0 pb-6">{children}</main>
+      <main
+        className={
+          fullWidth
+            ? "w-full px-6 pt-0 pb-6"
+            : "mx-auto max-w-6xl px-6 pt-0 pb-6"
+        }
+      >
+        {children}
+      </main>
     </div>
   );
 }
