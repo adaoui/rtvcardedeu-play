@@ -108,12 +108,11 @@ async function fetchUploadsAsLatest(max = 10): Promise<LatestVideo[]> {
  * - Primer intent: uploads playlist (recomanat i estable)
  * - Fallback opcional: search (per si mai falla uploads)
  */
-export async function fetchLatestVideos(max = 10): Promise<LatestVideo[]> {
-  // ✅ Via uploads playlist (el bo)
-  const latest = await fetchUploadsAsLatest(max);
-
-  // Si encara així és buit, probablement el canal realment no té vídeos públics
-  return latest;
+export async function fetchLatestVideos(max = 10) {
+  const res = await fetch(`/api/latest?max=${max}`);
+  const json = await res.json();
+  if (!res.ok) throw new Error(json?.error ?? "Backend error");
+  return json.items as LatestVideo[];
 }
 
 /**

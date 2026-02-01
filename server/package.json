@@ -1,0 +1,12 @@
+{
+  "name": "rtvcplay-cache",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^4.19.2"
+  }
+}

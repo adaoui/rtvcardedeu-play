@@ -9,6 +9,7 @@ export default function Home() {
   const [videos, setVideos] = useState<LatestVideo[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [heroIndex, setHeroIndex] = useState(0);
+  const [heroVideoReady, setHeroVideoReady] = useState(false);
 
   useEffect(() => {
     fetchLatestVideos(20)
@@ -25,10 +26,12 @@ export default function Home() {
   const featured = heroVideos[heroIndex];
 
   function prevHero() {
+    setHeroVideoReady(false);
     setHeroIndex((i) => (i - 1 + heroVideos.length) % heroVideos.length);
   }
 
   function nextHero() {
+    setHeroVideoReady(false);
     setHeroIndex((i) => (i + 1) % heroVideos.length);
   }
   const categories = [
@@ -56,7 +59,7 @@ export default function Home() {
           {featured?.videoId ? (
             <iframe
               className="absolute inset-0 h-full w-full scale-[1.45] opacity-55"
-              src={`https://www.youtube.com/embed/${featured.videoId}?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1&playsinline=1&loop=1&playlist=${featured.videoId}&iv_load_policy=3&cc_load_policy=0`}
+              src={`https://www.youtube-nocookie.com/embed/${featured.videoId}?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1&playsinline=1&loop=1&playlist=${featured.videoId}&iv_load_policy=3&cc_load_policy=0`}
               title="Hero background"
               allow="autoplay; encrypted-media; picture-in-picture"
             />
