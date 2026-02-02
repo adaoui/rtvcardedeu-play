@@ -74,7 +74,6 @@ export default function Home() {
         </div>
 
         <div className="relative mx-auto max-w-6xl px-6 sm:px-10 pt-16 pb-10">
-          <p className="text-sm text-zinc-300/80">RTVCardedeu Play</p>
           <h1 className="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight">
             Últims vídeos
           </h1>

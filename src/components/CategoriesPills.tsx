@@ -19,7 +19,7 @@ export function CategoriesPills({ categories }: { categories: Category[] }) {
         {categories.map((c) => (
           <Link
             key={c.id}
-            to={`/tot?cat=${c.id}`}
+            to={`/categoria/${c.id}`}
             className={[
               // mida “Netflix-like”
               "group relative grid place-items-center",

@@ -13,8 +13,19 @@ export function Shell({
     <div className="min-h-screen bg-black text-white">
       <header className="sticky top-0 z-50 border-b border-zinc-800/80 bg-black/70 backdrop-blur">
         <div className="mx-auto max-w-6xl px-6 py-4 flex items-center gap-4">
-          <Link to="/" className="font-extrabold tracking-tight text-xl">
-            RTVCardedeu <span className="text-zinc-400">Play</span>
+          <Link
+            to="/"
+            className="flex items-center gap-3 font-extrabold tracking-tight text-xl"
+          >
+            <img
+              src="/src/assets/logo.png"
+              alt="RTVCardedeu Play Logo"
+              className="h-10 w-auto"
+            />
+            <span>
+              RTVCardedeu{" "}
+              <span className="text-zinc-400 text-[0.95em]">Play</span>
+            </span>
           </Link>
 
           <div className="flex-1" />
