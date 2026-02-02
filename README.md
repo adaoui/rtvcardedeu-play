@@ -1,3 +1,5 @@
+![RTVC](/public/favicon.ico/)
+
 # RTVCardedeu Play 🎬📺
 
 Web tipo “TV a la carta” usando **YouTube** como fuente de vídeos, con **backend local con cache** para reducir peticiones y evitar problemas de cuota.
