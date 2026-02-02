@@ -52,7 +52,7 @@ export default function Home() {
       ) : null}
 
       {/* HERO (últimos 5) */}
-      <section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen overflow-hidden bg-black min-h-[520px] h-[80vh]">
+      <section className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen overflow-hidden pb-64 lg:pb-0 bg-black min-h-[520px] h-[80vh]">
         {/* Video background (muted autoplay) */}
         <div className="absolute inset-0">
           {/* Video background (encima) */}
@@ -162,9 +162,9 @@ export default function Home() {
       </section>
 
       {/* NOVETATS (flotant sobre el final del HERO) */}
-      <section className="relative z-30 -mt-52 pb-10">
+      <section className="relative z-30 mt-8 pb-10 lg:-mt-52">
         {/* full width, centrat tipus Netflix */}
-        <div className="mx-auto w-full max-w-[1720px] px-6 sm:px-1">
+        <div className="mx-auto w-full max-w-[1720px] px-6 sm:px-10">
           <div className="mb-5 flex items-end justify-between">
             <h2 className="text-xl font-semibold">Més novetats</h2>
           </div>
